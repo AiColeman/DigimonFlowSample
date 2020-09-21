@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.github.AiColeman.digimon_flow_sample"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation deps.kotlin.stdlib
+
+    implementation deps.ktx
+
+    implementation deps.appcompat
+
+    implementation deps.constraint_layout
+
+    implementation deps.design
+
+    implementation deps.material
+
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.moshi_converter
+
+    implementation deps.moshi.moshi
+    implementation deps.moshi.kotlin
+    kapt deps.moshi.codegen
+
+    implementation deps.okhttp.okhttp
+    implementation deps.okhttp.logging_interceptor
+
+    implementation deps.coroutine.core
+    implementation deps.coroutine.android
+
+    implementation deps.hilt.android
+    kapt deps.hilt.android_compiler
+    implementation deps.hilt.viewmodel
+    kapt deps.hilt.compiler
+
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+    implementation deps.navigation.dynamic_features_fragment
+    androidTestImplementation deps.navigation.testing
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+
+    implementation deps.lifecycle.viewmodel
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.livedata
+    implementation deps.lifecycle.extensions
+    kapt deps.lifecycle.compiler
+
+    implementation deps.swipe_refresh_layout
+
+    implementation deps.glide
+    kapt deps.glide_compiler
+}

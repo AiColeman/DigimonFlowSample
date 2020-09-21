@@ -1,0 +1,112 @@
+ext.deps = [:]
+
+/* versions */
+def versions = [:]
+versions.kotlin_version = '1.4.10'
+versions.gradle_version = '4.0.1'
+versions.ktx_version = '1.3.1'
+versions.appcompat_version = '1.2.0'
+versions.constraint_version = '2.0.1'
+versions.design_version = '30.0.0'
+versions.material_version = '1.3.0-alpha02'
+versions.retrofit_version = '2.9.0'
+versions.moshi_version = '1.9.3'
+versions.okhttp_version = '4.9.0'
+versions.coroutine_version = '1.3.8'
+versions.android_hilt_version = '2.28.3-alpha'
+versions.androidx_hilt_version = '1.0.0-alpha02'
+versions.navigation_version = '2.3.0'
+versions.android_lifecycle_version = '1.1.1'
+versions.androidx_lifecycle_version = '2.3.0-alpha07'
+versions.swipe_refresh_layout_version = '1.1.0'
+versions.glide_version = '4.11.0'
+
+def deps = [:]
+
+// Kotlin
+def kotlin = [:]
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin_version"
+deps.kotlin = kotlin
+
+// Gradle
+deps.gradle = "com.android.tools.build:gradle:$versions.gradle_version"
+
+// ktx
+deps.ktx = "androidx.core:core-ktx:$versions.ktx_version"
+
+// Appcompat
+deps.appcompat = "androidx.appcompat:appcompat:$versions.appcompat_version"
+
+// Constraint Layout
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_version"
+
+// Design
+deps.design = "com.android.support:design:$versions.design_version"
+
+// material
+deps.material = "com.google.android.material:material:$versions.material_version"
+
+// Retrofit
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:$versions.retrofit_version"
+retrofit.moshi_converter = "com.squareup.retrofit2:converter-moshi:$versions.retrofit_version"
+deps.retrofit = retrofit
+
+// Moshi
+def moshi = [:]
+moshi.moshi = "com.squareup.moshi:moshi:$versions.moshi_version"
+moshi.kotlin = "com.squareup.moshi:moshi-kotlin:$versions.moshi_version"
+moshi.codegen = "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi_version"
+deps.moshi = moshi
+
+// OkHTTP
+def okhttp = [:]
+okhttp.okhttp = "com.squareup.okhttp3:okhttp:$versions.okhttp_version"
+okhttp.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp_version"
+deps.okhttp = okhttp
+
+// Coroutine
+def coroutine = [:]
+coroutine.core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutine_version"
+coroutine.android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutine_version"
+deps.coroutine = coroutine
+
+// Hilt
+def hilt = [:]
+hilt.android = "com.google.dagger:hilt-android:$versions.android_hilt_version"
+hilt.android_compiler = "com.google.dagger:hilt-android-compiler:$versions.android_hilt_version"
+hilt.android_gradle_plugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.android_hilt_version"
+hilt.viewmodel = "androidx.hilt:hilt-lifecycle-viewmodel:$versions.androidx_hilt_version"
+hilt.compiler = "androidx.hilt:hilt-compiler:$versions.androidx_hilt_version"
+deps.hilt = hilt
+
+// Navigation
+def navigation = [:]
+navigation.fragment_ktx = "androidx.navigation:navigation-fragment-ktx:$versions.navigation_version"
+navigation.ui_ktx = "androidx.navigation:navigation-ui-ktx:$versions.navigation_version"
+navigation.dynamic_features_fragment = "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation_version"
+navigation.testing = "androidx.navigation:navigation-testing:$versions.navigation_version"
+navigation.safe_args = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation_version"
+navigation.fragment = "androidx.navigation:navigation-fragment:$versions.navigation_version"
+navigation.ui = "androidx.navigation:navigation-ui:$versions.navigation_version"
+navigation.safe_args
+deps.navigation = navigation
+
+// LifeCycle
+def lifecycle = [:]
+lifecycle.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.androidx_lifecycle_version"
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.androidx_lifecycle_version"
+lifecycle.livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.androidx_lifecycle_version"
+lifecycle.extensions = "android.arch.lifecycle:extensions:$versions.android_lifecycle_version"
+lifecycle.compiler = "android.arch.lifecycle:compiler:$versions.android_lifecycle_version"
+deps.lifecycle = lifecycle
+
+// Swipe Refresh Layout
+deps.swipe_refresh_layout = "androidx.swiperefreshlayout:swiperefreshlayout:$versions.swipe_refresh_layout_version"
+
+// Glide
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide_version"
+deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide_version"
+
+ext.deps = deps
