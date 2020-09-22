@@ -3,7 +3,7 @@
 ## About
 - Coroutine flow을 사용한 간단한 api 통신 앱입니다.
 
-## 스택
+## Stack
 - MVVM
 - [Hilt](https://dagger.dev/hilt/)
 - LiveData
