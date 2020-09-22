@@ -5,17 +5,17 @@
 
 ## 스택
 - MVVM
-- Hilt
+- [Hilt](https://dagger.dev/hilt/)
 - LiveData
 - LifeCycle
-- Coroutine FLow
-- Glide
-- Retrofit
-- OkHTTP
-- Moshi
+- [Coroutine Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
+- [Glide](https://github.com/bumptech/glide)
+- [Retrofit](https://square.github.io/retrofit/)
+- [OkHTTP](https://square.github.io/okhttp/)
+- [Moshi](https://github.com/square/moshi)
 - Transition
 - Navigation
-- Material Design
+- [Material Component](https://github.com/material-components/material-components-android)
 
 ## License
 
