@@ -15,7 +15,7 @@ interface DigimonService {
     @GET("digimon/name/{name}")
     suspend fun fetchDigimonInfo(
         @Path("name") name: String
-    ): Response<Digimon>
+    ): Response<List<Digimon>>
 
     @GET("digimon/level/{level}")
     suspend fun fetchDigimonListByLevel(

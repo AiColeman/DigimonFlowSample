@@ -40,7 +40,7 @@ class DigimonRepository @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    fun getDigimonInfo(name: String): Flow<State<Digimon>> {
+    fun getDigimonInfo(name: String): Flow<State<List<Digimon>>> {
         return flow {
             emit(State.loading())
 
@@ -53,7 +53,7 @@ class DigimonRepository @Inject constructor(
                         State.success(Body)
                     )
                 } else {
-                    emit(State.error<Digimon>(Response.message()))
+                    emit(State.error<List<Digimon>>(Response.message()))
                 }
             } catch (e: Exception) {
                 emit(State.error("Network error"))

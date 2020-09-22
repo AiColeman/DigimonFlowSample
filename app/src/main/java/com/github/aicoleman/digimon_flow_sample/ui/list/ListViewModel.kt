@@ -27,4 +27,17 @@ class ListViewModel @ViewModelInject constructor(
             }
         }
     }
+
+    private val _digimonInfoLiveData = MutableLiveData<State<List<Digimon>>>()
+
+    val digimonInfoLiveData: LiveData<State<List<Digimon>>>
+        get() = _digimonInfoLiveData
+
+    fun getDigimonInfo(name: String) {
+        viewModelScope.launch {
+            digimonRepository.getDigimonInfo(name).collect {
+                _digimonInfoLiveData.value = it
+            }
+        }
+    }
 }

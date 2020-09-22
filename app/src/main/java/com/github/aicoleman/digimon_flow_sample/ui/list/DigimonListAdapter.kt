@@ -3,7 +3,9 @@ package com.github.aicoleman.digimon_flow_sample.ui.list
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.github.aicoleman.digimon_flow_sample.R
@@ -31,6 +33,10 @@ class DigimonListAdapter(val context: Context) : RecyclerView.Adapter<DigimonLis
             executePendingBindings()
 
             Glide.with(context).load(item.img).into(img)
+            card.setOnClickListener {
+                val bundle = bundleOf("name" to item.name)
+                Navigation.findNavController(root).navigate(R.id.action_listFragment_to_infoFragment, bundle)
+            }
         }
     }
 
