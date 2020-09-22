@@ -1,4 +1,4 @@
-package com.github.aicoleman.digimon_flow_sample.ui.list
+package com.github.aicoleman.digimon_flow_sample.ui
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import com.github.aicoleman.digimon_flow_sample.repository.DigimonRepository
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ListViewModel @ViewModelInject constructor(
+class DigimonViewModel @ViewModelInject constructor(
     val digimonRepository: DigimonRepository
 ) : ViewModel() {
 

@@ -1,28 +1,31 @@
-package com.github.aicoleman.digimon_flow_sample.ui.list
+package com.github.aicoleman.digimon_flow_sample.ui
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.github.aicoleman.digimon_flow_sample.R
 import com.github.aicoleman.digimon_flow_sample.data.model.Digimon
-import com.github.aicoleman.digimon_flow_sample.data.model.State
-import com.github.aicoleman.digimon_flow_sample.databinding.ItemDigimonListBinding
+import com.github.aicoleman.digimon_flow_sample.databinding.ItemDigimonBinding
 
-class DigimonListAdapter(val context: Context) : RecyclerView.Adapter<DigimonListAdapter.DigimonViewHolder>() {
+class DigimonListAdapter(val context: Context, val fragment: Fragment) : RecyclerView.Adapter<DigimonListAdapter.DigimonViewHolder>() {
 
     private val items: MutableList<Digimon> = mutableListOf()
 
-    class DigimonViewHolder(val binding: ItemDigimonListBinding) : RecyclerView.ViewHolder(binding.root) {}
+    class DigimonViewHolder(val binding: ItemDigimonBinding) : RecyclerView.ViewHolder(binding.root) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DigimonViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding =
-            DataBindingUtil.inflate<ItemDigimonListBinding>(inflater, R.layout.item_digimon_list, parent, false)
+            DataBindingUtil.inflate<ItemDigimonBinding>(inflater, R.layout.item_digimon, parent, false)
         return DigimonViewHolder(binding)
     }
 
@@ -32,10 +35,18 @@ class DigimonListAdapter(val context: Context) : RecyclerView.Adapter<DigimonLis
             digimon = item
             executePendingBindings()
 
-            Glide.with(context).load(item.img).into(img)
+            Glide.with(context)
+                .load(item.img)
+                .apply(RequestOptions.circleCropTransform())
+                .into(img)
             card.setOnClickListener {
-                val bundle = bundleOf("name" to item.name)
-                Navigation.findNavController(root).navigate(R.id.action_listFragment_to_infoFragment, bundle)
+                img.transitionName = item.img
+                val extras = FragmentNavigatorExtras(
+                    img to "digimon_img"
+                )
+
+                val action = ListFragmentDirections.actionListFragmentToInfoFragment(item.name)
+                findNavController(fragment).navigate(action, extras)
             }
         }
     }

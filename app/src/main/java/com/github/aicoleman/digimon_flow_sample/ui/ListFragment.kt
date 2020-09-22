@@ -1,4 +1,4 @@
-package com.github.aicoleman.digimon_flow_sample.ui.list
+package com.github.aicoleman.digimon_flow_sample.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class ListFragment : Fragment() {
 
     lateinit var binding: FragmentListBinding
-    val viewModel by viewModels<ListViewModel>()
+    val viewModel by viewModels<DigimonViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +37,7 @@ class ListFragment : Fragment() {
             binding.swipe.isRefreshing = false
         }
 
-        binding.recycler.adapter = DigimonListAdapter(requireContext())
+        binding.recycler.adapter = DigimonListAdapter(requireContext(), this)
 
         binding.swipe.isRefreshing = true
         viewModel.getDigimonList()

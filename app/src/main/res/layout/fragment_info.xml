@@ -26,7 +26,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="4dp"
+                android:scaleType="fitXY"
+                android:layout_margin="8dp"
+                android:transitionName="digimon_img"
                 />
 
             <com.google.android.material.textview.MaterialTextView
@@ -36,7 +38,8 @@
                 app:layout_constraintTop_toBottomOf="@id/img"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
                 android:text="@{digimon.name}"
                 />
 
@@ -47,7 +50,8 @@
                 app:layout_constraintTop_toBottomOf="@id/name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_margin="4dp"
+                android:layout_margin="8dp"
+                android:textSize="20sp"
                 android:text="@{digimon.level}"
                 />
 

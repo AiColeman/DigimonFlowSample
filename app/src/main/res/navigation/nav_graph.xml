@@ -8,14 +8,32 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.github.aicoleman.digimon_flow_sample.ui.list.ListFragment"
+        android:name="com.github.aicoleman.digimon_flow_sample.ui.ListFragment"
         android:label="ListFragment" >
+
+        <argument
+            android:name="uri"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+
         <action
             android:id="@+id/action_listFragment_to_infoFragment"
             app:destination="@id/infoFragment" />
+
     </fragment>
+
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.github.aicoleman.digimon_flow_sample.ui.info.InfoFragment"
-        android:label="InfoFragment" />
+        android:name="com.github.aicoleman.digimon_flow_sample.ui.InfoFragment"
+        android:label="InfoFragment">
+
+        <argument
+            android:name="uri"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="null" />
+
+    </fragment>
+
 </navigation>
