@@ -35,10 +35,6 @@ class DigimonListAdapter(val context: Context, val fragment: Fragment) : Recycle
             digimon = item
             executePendingBindings()
 
-            Glide.with(context)
-                .load(item.img)
-                .apply(RequestOptions.circleCropTransform())
-                .into(img)
             card.setOnClickListener {
                 img.transitionName = item.img
                 val extras = FragmentNavigatorExtras(

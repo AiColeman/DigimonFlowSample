@@ -29,6 +29,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_margin="8dp"
                 android:transitionName="digimon_img"
+                app:imgLoad="@{digimon.img}"
                 />
 
             <com.google.android.material.textview.MaterialTextView

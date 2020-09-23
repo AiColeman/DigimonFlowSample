@@ -61,10 +61,6 @@ class InfoFragment : Fragment() {
                     is State.Success -> {
                         binding.digimon = state.data.get(0)
                         binding.img.transitionName = state.data.get(0).img
-                        Glide.with(requireContext())
-                            .load(state.data.get(0).img)
-                            .apply(RequestOptions.circleCropTransform())
-                            .into(binding.img)
                         binding.swipe.isRefreshing = false
                     }
                     is State.Loading -> {

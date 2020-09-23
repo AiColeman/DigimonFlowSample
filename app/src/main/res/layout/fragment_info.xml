@@ -26,9 +26,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:scaleType="fitXY"
                 android:layout_margin="8dp"
                 android:transitionName="digimon_img"
+                app:imgLoad="@{digimon.img.toString()}"
                 />
 
             <com.google.android.material.textview.MaterialTextView
